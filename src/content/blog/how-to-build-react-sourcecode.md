@@ -1,38 +1,38 @@
 ---
 pubDatetime: 2023-11-11T05:57:57.217Z
-title: 如何打包react官方源码并在项目中debug
+title: How to Package React Official Source Code and Debug in Project
 postSlug: how-to-build-react-sourcecode
 featured: false
 tags:
   - react
-description: how to build react sourcecode and debug in your vite react project.
+description: How to build React source code and debug in your Vite React project.
 ---
 
-## 前置工作
+## Preliminary Work
 
-首先clone react的源码，并checkout到18.2.0这个版本
+First, clone the source code of React and checkout to version 18.2.0
 
 ```bash
 git clone https://github.com/facebook/react.git
 git checkout v18.2.0
 ```
 
-## 打包源码
+## Build source code
 
-- 运行yarn
+- run yarn
 
-成功后，运行yarn build，但是如果直接build，是不会有sourcemap的，因此需要：
+run yarn build. However, if you build directly, there will be no sourcemap. Therefore, you need to:
 
-- 修改build.js文件，开启sourcemap，并注释掉其中的一些plugin
-- 把yarn build 打包出来的 `react.development.js`,`react.development.map.js`,`react-dom.development.js`,`react-dom.development.map.js`复制
+- Modify the build.js file, enable sourcemap, and comment out some of the plugins in it.
+- Copy the `react.development.js`, `react.development.map.js`, `react-dom.development.js`, and `react-dom.development.map.js` files that are packaged by yarn build.
 
-## 引入源码
+## Importing the Source Code
 
-- 在自己的项目中，引入刚刚打包出来的四个文件
-- 安装vite-plugin-externals插件，把react和react-dom external掉
-- 在index.html中，用script脚本加载打包出来的`react.development.js`和`react-dom.development.js`
+- In your own project, import the four files you just packaged.
+- Install the vite-plugin-externals plugin and externalize react and react-dom.
+- In index.html, use script tags to load the packaged `react.development.js` and `react-dom.development.js`.
 
-## 资源
+## Resources
 
-[视频版](https://www.youtube.com/watch?v=6M9FCe1rYsY)
-[repo](https://github.com/DongHY1/react-vite-debug-repo)
+[Video Version](https://www.youtube.com/watch?v=6M9FCe1rYsY)
+[Repo](https://github.com/DongHY1/react-vite-debug-repo)
